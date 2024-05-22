@@ -65,7 +65,7 @@ jupyter --version
 
 **Note**: If you are using Anaconda for Python, you will need to use the Anaconda prompt to check versions of your Jupyter Notebook/Lab installation.
 
-## Set up R an R Kernel
+## Set up R Kernel
 
 1. Install the `IRkernel` package :
 
