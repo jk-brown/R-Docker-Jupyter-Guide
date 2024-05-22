@@ -453,7 +453,76 @@ RUN R -e &#39;library(&quot;devtools&quot;); devtools::install(&quot;/home/jovya
 <p>In this Dockerfile you can make many changes including adding more
 packages and dependencies or changing the specific branch of a repo you
 are cloning from Github.</p>
-<p>The Dockerfile is saved in a directory of the users choice.</p>
+<p>The Dockerfile should be saved as <code>Dockerfile</code> with no
+extension in a directory of the users choice. You will need to open
+terminal from this directory when you are ready to build and run the
+docker container.</p>
+</div>
+<div id="build-and-run-the-docker-conatainer" class="section level2">
+<h2>Build and Run the Docker Conatainer:</h2>
+<ol style="list-style-type: decimal">
+<li>Open terminal and navigate to the directory containing your
+<code>Dockerfile</code>:</li>
+</ol>
+<pre><code>cd &lt;path/to/your/directory&gt;</code></pre>
+<p>On macOS you can right/secondary click on the folder and open
+terminal from that directory.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>To build the docker image run this line in your terminal:</li>
+</ol>
+<pre><code>docker -t matilda-notebook . </code></pre>
+<p>You should create the docker image using a name that make sense to
+you. Note the period at the end.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Run the Docker container:</li>
+</ol>
+<pre><code>docker run -p 8888:8888 matilda-notebook</code></pre>
+<p>After running the container, you can use the <strong><a href="http://127.0.0" class="uri">http://127.0.0</a>…</strong> url to
+open a web browser and you will see the Jupyter Notebook interface.</p>
+<p>If you run into a log in window, use the token provided in the
+terminal to log in.</p>
+</div>
+<div id="using-jupyter-notebook-with-r" class="section level2">
+<h2>Using Jupyter Notebook with R</h2>
+<ol style="list-style-type: decimal">
+<li><p>Create a new notebook by clicking on the the <code>R</code> logo
+under “Notebook”.</p></li>
+<li><p>You can now write and execute R code in this window.</p></li>
+</ol>
+<p>Use the “Code” drop down to switch the cell between Markdown and
+code.</p>
+<p>You can also switch a cell to Markdown by clicking to the left side
+of the cell and typing “M”.</p>
+<p>Once you are finished authoring your notebook you can download the
+Python notebook file <code>.ipynb</code>. If the correct installation
+you can also export you notebook into various formats (PDF, HTML, LaTeX,
+etc.)</p>
+<div id="some-other-commands-i-found-useful" class="section level3">
+<h3>Some other commands I found useful</h3>
+<ol style="list-style-type: decimal">
+<li>you can list the running containers in Docker in terminal. It
+provide detailed information about each of the running containers.</li>
+</ol>
+<pre><code>docker ps</code></pre>
+<p>There are other extensions onto this command that will pull more
+specific information as well.</p>
+<p>This information can also be found in Docker Desktop.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>you can stop one or more containers that are running in Docker. In
+most cases the container will gracefully shutdown.</li>
+</ol>
+<pre><code>docker stop matilda-notebook</code></pre>
+<p>To stop a container you can you the container name or the container
+ID that you see when running <code>docker ps</code>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>you can also remove one or more containers. This is sometimes done
+to free up resource space, but the decision to do it is up to the user.
+Docker will only remove containers that have first been stopped.</li>
+</ol>
+<pre><code>docker rm matilda-notebook</code></pre>
+<p>Similar to above, you can use the container name of the container ID
+(from <code>docker ps</code>) to specify which container to remove.</p>
+</div>
 </div>
 </div>
 

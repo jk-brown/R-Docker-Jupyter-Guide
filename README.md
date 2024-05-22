@@ -113,5 +113,70 @@ In this Dockerfile you can make many changes including adding more packages and 
 
 The Dockerfile should be saved as `Dockerfile` with no extension in a directory of the users choice. You will need to open terminal from this directory when you are ready to build and run the docker container.
 
+## Build and Run the Docker Conatainer:
 
+1. Open terminal and navigate to the directory containing your `Dockerfile`:
 
+```
+cd <path/to/your/directory>
+```
+
+On macOS you can right/secondary click on the folder and open terminal from that directory.
+
+2. To build the docker image run this line in your terminal:
+
+```
+docker -t matilda-notebook . 
+```
+
+You should create the docker image using a name that make sense to you. Note the period at the end.
+
+3. Run the Docker container:
+
+```
+docker run -p 8888:8888 matilda-notebook
+```
+
+After running the container, you can use the **http://127.0.0...** url to open a web browser and you will see the Jupyter Notebook interface.
+
+If you run into a log in window, use the token provided in the terminal to log in.
+
+## Using Jupyter Notebook with R
+
+1. Create a new notebook by clicking on the the `R` logo under "Notebook".
+
+2. You can now write and execute R code in this window.
+
+Use the "Code" drop down to switch the cell between Markdown and code.
+
+You can also switch a cell to Markdown by clicking to the left side of the cell and typing "M".
+
+Once you are finished authoring your notebook you can download the Python notebook file `.ipynb`. If the correct installation you can also export you notebook into various formats (PDF, HTML, LaTeX, etc.)
+
+### Some other commands I found useful
+
+1. you can list the running containers in Docker in terminal. It provide detailed information about each of the running containers.
+
+```
+docker ps
+```
+
+There are other extensions onto this command that will pull more specific information as well.
+
+This information can also be found in Docker Desktop.
+
+2. you can stop one or more containers that are running in Docker. In most cases the container will gracefully shutdown.
+
+```
+docker stop matilda-notebook
+```
+
+To stop a container you can you the container name or the container ID that you see when running `docker ps`.
+
+3. you can also remove one or more containers. This is sometimes done to free up resource space, but the decision to do it is up to the user. Docker will only remove containers that have first been stopped.
+
+```
+docker rm matilda-notebook
+```
+
+Similar to above, you can use the container name of the container ID (from `docker ps`) to specify which container to remove.
