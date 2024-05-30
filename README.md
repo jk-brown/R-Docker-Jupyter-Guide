@@ -126,7 +126,7 @@ On macOS you can right/secondary click on the folder and open terminal from that
 2. To build the docker image run this line in your terminal:
 
 ```
-docker -t matilda-notebook . 
+docker build -t matilda-notebook . 
 ```
 
 You should create the docker image using a name that make sense to you. Note the period at the end.
